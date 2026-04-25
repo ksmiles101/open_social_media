@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SourceList from '../components/SourceList.astro';
+---
+
+<Layout title="Källor" description="Rekommenderade svenska nyhetsmedier på Mastodon, fediverse och Bluesky.">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+
+    <div class="mb-10">
+      <p class="text-blue-700 font-semibold text-sm uppercase tracking-widest mb-3">Nyheter</p>
+      <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Källor att följa</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">
+        Svenska nyhetsmedier och trovärdiga informationskällor på Mastodon och Bluesky.
+        Följ dem direkt från din klient.
+      </p>
+    </div>
+
+    <div class="bg-amber-50 border border-amber-200 rounded-lg px-5 py-4 mb-8 text-sm text-amber-900">
+      <p class="font-semibold mb-1">Obs – verifiera alltid</p>
+      <p>
+        Kontoinformation kan bli inaktuell. Kontrollera att ett konto faktiskt tillhör
+        det angivna mediet innan du följer det. Sök på mediets officiella webbplats
+        för att hitta verifierade konton.
+      </p>
+    </div>
+
+    <div class="mb-8">
+      <h2 class="text-base font-semibold text-gray-900 mb-3">Hur följer jag?</h2>
+      <div class="grid sm:grid-cols-2 gap-4 text-sm">
+        <div class="bg-purple-50 rounded-lg p-4">
+          <p class="font-semibold text-purple-900 mb-1">Mastodon-konton</p>
+          <p class="text-purple-800">
+            Kopiera kontot (t.ex. <code class="bg-purple-100 px-1 rounded font-mono text-xs">@svtnyheter@mastodon.social</code>)
+            och klistra in i sökfältet i din Mastodon-klient.
+          </p>
+        </div>
+        <div class="bg-sky-50 rounded-lg p-4">
+          <p class="font-semibold text-sky-900 mb-1">Bluesky-konton</p>
+          <p class="text-sky-800">
+            Sök på kontot direkt i Bluesky-appen, eller gå till
+            <strong>bsky.app/profile/[konto]</strong> i webbläsaren.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <SourceList />
+
+    <div class="mt-10 border-t border-gray-200 pt-8">
+      <h2 class="text-base font-semibold text-gray-900 mb-2">Saknar du ett medium?</h2>
+      <p class="text-sm text-gray-600">
+        Den här listan är kurerad och växer över tid. Om du vet om ett trovärdigt
+        svenskt medium som borde finnas med, kontakta oss på Mastodon: <a href="https://mastodon.social/@ksmiles101" class="text-purple-700 hover:underline">@ksmiles101@mastodon.social</a>.
+      </p>
+    </div>
+
+  </div>
+</Layout>

@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Algoritmer" description="Förstå skillnaden mellan kronologiska flöden, algoritmiska flöden och Bluesky custom feeds.">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+
+    <div class="mb-10">
+      <p class="text-blue-700 font-semibold text-sm uppercase tracking-widest mb-3">Flöden och algoritmer</p>
+      <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Algoritmer – eller frånvaron av dem</h1>
+      <p class="text-lg text-gray-600">
+        Den mest påtagliga skillnaden mellan Twitter/X och federerade sociala medier är hur
+        innehåll presenteras för dig.
+      </p>
+    </div>
+
+    <div class="space-y-10">
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-4">Kronologiskt flöde</h2>
+        <p class="text-gray-600 mb-4">
+          På Mastodon och Pixelfed ser du inlägg i den ordning de postades – senaste överst,
+          äldsta underst. Det är precis det. Inget mer.
+        </p>
+        <p class="text-gray-600 mb-4">
+          Det innebär att plattformen inte har något intresse av att hålla dig engagerad längre
+          än du vill vara. Ingen väljer ut "engagerande" innehåll åt dig. Ingen prioriterar
+          inlägg som skapar starka reaktioner.
+        </p>
+        <div class="bg-gray-50 rounded-lg p-5 border border-gray-200">
+          <p class="text-sm text-gray-700">
+            <strong>Konsekvens:</strong> Om du följer 500 konton och alla postar mycket kan
+            flödet bli överväldigande. Lösningen är <strong>listor</strong> – du kan skapa
+            kurerade listor med ett urval av konton som du läser mer noggrant.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-4">Algoritmiska flöden</h2>
+        <p class="text-gray-600 mb-4">
+          Twitter/X, Facebook och Instagram använder algoritmer som väljer ut vilket innehåll
+          du ser – och i vilken ordning. Algoritmerna optimerar för engagemang: likes, delningar,
+          svar och tid spenderad på plattformen.
+        </p>
+        <p class="text-gray-600 mb-4">
+          Problemet är att "engagerande" inte är detsamma som "värdefullt". Ilska, rädsla och
+          kontroverser driver engagemang. Det är varför politiska bråk och clickbait dominerar
+          algoritmstyrda flöden.
+        </p>
+        <div class="bg-red-50 border border-red-200 rounded-lg p-5 text-sm text-red-900">
+          <strong>Transparensproblemet:</strong> Du vet aldrig exakt varför du ser ett specifikt
+          inlägg, vem som betalat för att det ska synas, eller vad algoritmen optimerar för
+          just nu.
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-4">Bluesky custom feeds</h2>
+        <p class="text-gray-600 mb-4">
+          Bluesky tar en mellanväg med <strong>custom feeds</strong> – algoritmiska flöden
+          som är öppna, transparenta och valbara. Vem som helst kan bygga ett custom feed
+          och publicera det. Du väljer vilka feeds du prenumererar på.
+        </p>
+        <p class="text-gray-600 mb-4">
+          Det finns feeds för specifika ämnen, hashtags, språk, community eller intressegrupper.
+          Till skillnad från Twitters algoritm vet du precis vad ett custom feed gör – koden
+          är öppen och regeln är tydlig.
+        </p>
+
+        <div class="grid sm:grid-cols-3 gap-4 my-6">
+          {[
+            { label: 'Populärt i Sverige', desc: 'Trending-innehåll bland svenska konton.' },
+            { label: 'Vetenskap', desc: 'Inlägg från forskare och vetenskapliga institutioner.' },
+            { label: 'Utan svar', desc: 'Visar bara ursprungsinlägg, inga svarstrådar.' },
+          ].map(f => (
+            <div class="bg-sky-50 border border-sky-200 rounded-lg p-4 text-sm">
+              <p class="font-semibold text-sky-900 mb-1">{f.label}</p>
+              <p class="text-sky-800">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <p class="text-sm text-gray-500">
+          Custom feeds byggs av communityn. Du hittar dem i Bluesky-appen under
+          <strong>Feeds → Utforska</strong>.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-4">Sammanfattning</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="border-b-2 border-gray-200">
+                <th class="text-left py-2 px-3 text-gray-500"></th>
+                <th class="text-left py-2 px-3 text-gray-700 font-semibold">Mastodon</th>
+                <th class="text-left py-2 px-3 text-gray-700 font-semibold">Bluesky</th>
+                <th class="text-left py-2 px-3 text-gray-700 font-semibold">Twitter/X</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              {[
+                ['Flödestyp', 'Kronologiskt', 'Kronologiskt + custom feeds', 'Algoritmiskt'],
+                ['Transparens', 'Fullt transparent', 'Öppna feed-regler', 'Stängt'],
+                ['Vem styr?', 'Du', 'Du + community', 'Plattformen'],
+                ['Betalt innehåll', 'Nej', 'Begränsat', 'Ja (reklam)'],
+              ].map(([label, ...cells]) => (
+                <tr class="hover:bg-gray-50">
+                  <td class="py-2 px-3 text-gray-500 font-medium">{label}</td>
+                  {cells.map(cell => <td class="py-2 px-3 text-gray-700">{cell}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+</Layout>

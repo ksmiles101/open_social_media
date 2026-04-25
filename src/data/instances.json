@@ -1,0 +1,92 @@
+[
+  {
+    "name": "mastodon.nu",
+    "url": "https://mastodon.nu",
+    "description": "Den ledande svenska Mastodon-instansen. Öppen för alla och har aktiv svensk community.",
+    "language": "sv",
+    "tags": ["generell", "svensk", "nybörjarvänlig"],
+    "users": "10 000+",
+    "registration": "open"
+  },
+  {
+    "name": "fikaverse.social",
+    "url": "https://fikaverse.social",
+    "description": "Mysig, nordisk instans med fokus på vardagsliv, kultur och gemenskapsanda.",
+    "language": "sv",
+    "tags": ["generell", "nordisk", "nybörjarvänlig"],
+    "users": "1 000+",
+    "registration": "open"
+  },
+  {
+    "name": "norden.social",
+    "url": "https://norden.social",
+    "description": "Instans för nordiska användare – Sverige, Norge, Danmark, Finland och Island.",
+    "language": "sv/no/da/fi",
+    "tags": ["generell", "nordisk", "flerspråkig"],
+    "users": "2 000+",
+    "registration": "open"
+  },
+  {
+    "name": "fosstodon.org",
+    "url": "https://fosstodon.org",
+    "description": "Community för öppen källkod och fri programvara. Tekniskt fokus, aktiv och välmoderead.",
+    "language": "en",
+    "tags": ["teknik", "öppen-källkod", "nördar"],
+    "users": "20 000+",
+    "registration": "open"
+  },
+  {
+    "name": "hachyderm.io",
+    "url": "https://hachyderm.io",
+    "description": "Instans för teknikproffs. Fokus på professionellt nätverkande och teknisk diskurs.",
+    "language": "en",
+    "tags": ["teknik", "professionell", "nätverkande"],
+    "users": "40 000+",
+    "registration": "open"
+  },
+  {
+    "name": "social.coop",
+    "url": "https://social.coop",
+    "description": "Kooperativt ägd och driven instans. Demokratiska strukturer, fokus på hållbarhet och etik.",
+    "language": "en",
+    "tags": ["generell", "kooperativ", "etik"],
+    "users": "2 000+",
+    "registration": "invite"
+  },
+  {
+    "name": "mastodon.social",
+    "url": "https://mastodon.social",
+    "description": "Den ursprungliga och största Mastodon-instansen. Bra startpunkt men stor och ibland lågmoderead.",
+    "language": "en/flerspråkig",
+    "tags": ["generell", "nybörjarvänlig", "stor"],
+    "users": "1 000 000+",
+    "registration": "open"
+  },
+  {
+    "name": "chaos.social",
+    "url": "https://chaos.social",
+    "description": "Kopplad till Chaos Computer Club. Aktiv, teknisk community med hög kvalitet på diskussioner.",
+    "language": "de/en",
+    "tags": ["teknik", "säkerhet", "hackerkultur"],
+    "users": "15 000+",
+    "registration": "invite"
+  },
+  {
+    "name": "scholar.social",
+    "url": "https://scholar.social",
+    "description": "För forskare, akademiker och studenter. Bra plats för vetenskaplig diskurs.",
+    "language": "en",
+    "tags": ["akademi", "forskning", "vetenskap"],
+    "users": "4 000+",
+    "registration": "invite"
+  },
+  {
+    "name": "journalism.social",
+    "url": "https://journalism.social",
+    "description": "Dedikerad instans för journalister, redaktörer och medieprofessionella.",
+    "language": "en",
+    "tags": ["journalistik", "media", "professionell"],
+    "users": "3 000+",
+    "registration": "open"
+  }
+]

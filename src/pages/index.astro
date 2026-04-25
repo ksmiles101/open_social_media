@@ -1,17 +1,92 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Vad är federerade sociala medier?" description="Lär dig om öppna, federerade sociala medier och hur du tar kontroll över ditt digitala liv.">
+
+  <section class="bg-gradient-to-b from-blue-50 to-white border-b border-gray-200 py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-blue-700 font-semibold text-sm uppercase tracking-widest mb-4">En guide för svenska användare</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+        Sociala medier utan ägare
+      </h1>
+      <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+        Mastodon, Bluesky och Pixelfed ger dig makten tillbaka. Inga algoritmer som styr vad du ser,
+        ingen enskild plattform som äger din data – och inget som hindrar dig från att byta instans.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a href="/kom-igang" class="no-underline bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-colors">
+          Kom igång →
+        </a>
+        <a href="/valj-plattform" class="no-underline bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold border border-gray-300 hover:border-gray-500 transition-colors">
+          Jämför plattformar
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-16">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">Vad är det här egentligen?</h2>
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <div class="prose max-w-none text-gray-600 space-y-4">
+        <p>
+          Federerade sociala medier fungerar som e-post – fast för sociala nätverk. Precis som att du kan
+          skicka ett mejl från Gmail till Hotmail kan du följa en person på Mastodon om hen är på en
+          helt annan server.
+        </p>
+        <p>
+          Det finns ingen enskild ägare. Ingen Elon Musk, ingen Mark Zuckerberg. Protokollet som binder
+          ihop nätverket – <strong>ActivityPub</strong> – är en öppen standard som vem som helst kan använda.
+        </p>
+        <p>
+          Bluesky använder ett annat protokoll (<strong>AT Protocol</strong>) men delar samma filosofi:
+          du äger ditt flöde, din data och din identitet.
+        </p>
+      </div>
+      <div class="space-y-4">
+        <div class="bg-white border border-gray-200 rounded-lg p-5">
+          <div class="text-2xl mb-2">🏘️</div>
+          <h3 class="font-semibold text-gray-900 mb-1">Som ett nätverk av byar</h3>
+          <p class="text-sm text-gray-600">Varje instans (server) är en by med egna regler. Men invånarna kan ändå kommunicera fritt med alla andra byar i federationen.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-lg p-5">
+          <div class="text-2xl mb-2">🔀</div>
+          <h3 class="font-semibold text-gray-900 mb-1">Inga algoritmer som styr</h3>
+          <p class="text-sm text-gray-600">Du ser det dina följda konton faktiskt postar, i kronologisk ordning. Inget som "boostas" för att hålla dig kvar längre.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-lg p-5">
+          <div class="text-2xl mb-2">📦</div>
+          <h3 class="font-semibold text-gray-900 mb-1">Din data, dina villkor</h3>
+          <p class="text-sm text-gray-600">Du kan exportera ditt konto och flytta till en annan instans utan att förlora dina följare.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-50 border-y border-gray-200 py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8">Utforska guiden</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          { href: '/kom-igang', title: 'Kom igång', desc: 'Steg-för-steg för den som aldrig testat.' },
+          { href: '/valj-plattform', title: 'Välj plattform', desc: 'Mastodon, Bluesky, Pixelfed eller PeerTube?' },
+          { href: '/valj-instans', title: 'Välj instans', desc: 'Hitta rätt Mastodon-server för just dig.' },
+          { href: '/flytta-konto', title: 'Flytta konto', desc: 'Migrera mellan instanser utan att tappa följare.' },
+          { href: '/algoritmer', title: 'Algoritmer', desc: 'Förstå kronologiska flöden och custom feeds.' },
+          { href: '/kallor', title: 'Källor', desc: 'Svenska nyhetsmedier på fediverse och Bluesky.' },
+        ].map(card => (
+          <a
+            href={card.href}
+            class="no-underline bg-white border border-gray-200 rounded-lg p-5 hover:border-blue-300 hover:shadow-sm transition-all block group"
+          >
+            <h3 class="font-semibold text-gray-900 group-hover:text-blue-700 mb-1 transition-colors">
+              {card.title} →
+            </h3>
+            <p class="text-sm text-gray-500">{card.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Layout>

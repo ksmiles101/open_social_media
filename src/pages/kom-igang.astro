@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import StepGuide from '../components/StepGuide.astro';
+
+const steps = [
+  {
+    title: 'Välj plattform',
+    description: 'Bestäm dig för vilken typ av socialt medium du letar efter. <a href="/valj-plattform">Mastodon</a> är bäst för textdiskussioner (som Twitter/X), <strong>Bluesky</strong> om du vill ha något mer likt det gamla Twitter med algoritmkontroll, <strong>Pixelfed</strong> för bilder och <strong>PeerTube</strong> för video.',
+    tip: 'Osäker? Börja med Mastodon – det är störst, mest etablerat och har flest svenska användare.',
+  },
+  {
+    title: 'Välj en instans (Mastodon)',
+    description: 'Om du väljer Mastodon behöver du välja vilken server (instans) du vill registrera dig på. Tänk på det som att välja e-postleverantör – du kan ändå kontakta alla andra. <a href="/valj-instans">Se vår guide för att hitta rätt instans.</a>',
+    tip: 'Väljer du Bluesky registrerar du dig direkt på bsky.app – det finns bara en inloggningspunkt.',
+  },
+  {
+    title: 'Skapa ett konto',
+    description: 'Gå till instansens webbplats och registrera dig. Du behöver en e-postadress. Välj ett användarnamn – på Mastodon ser det ut som <code class="bg-gray-100 px-1 rounded text-sm">@dittnamn@instans.social</code>. Det är din adress, precis som ett mejl.',
+  },
+  {
+    title: 'Fyll i din profil',
+    description: 'Lägg till en profilbild, en kort beskrivning och länka gärna till andra ställen du finns. På Mastodon finns det ett verifieringssystem för webbplatser: lägg till en länk tillbaka från din hemsida så visas din profiladress med en grön bock.',
+  },
+  {
+    title: 'Hitta folk att följa',
+    description: 'Sök på hashtags du är intresserad av, kolla i instansens lokala tidslinje eller använd <a href="https://followgraph.vercel.app" target="_blank" rel="noopener noreferrer">Followgraph</a> för att se vem folk i ditt nätverk följer. Många Twitter/X-användare har också migrerat och listar sina Mastodon-konton i sina profiler.',
+    tip: 'Hashtags är viktiga på Mastodon – det är det primära sättet att hitta innehåll. Följ gärna #Sverige, #svpol, #teknik.',
+  },
+  {
+    title: 'Välj hur du vill använda Mastodon',
+    description: `<strong>Börja i webbläsaren</strong> – det enklaste alternativet. Logga in på din instans (t.ex. mastodon.nu) direkt i webbläsaren. Fungerar på alla datorer och operativsystem, helt gratis och kräver ingen installation.<br><br>
+<strong>Officiella Mastodon-appen</strong> (iOS och Android, gratis) – bra grundval för mobilen. Enkel och välgjord, rekommenderas för de flesta.<br><br>
+<strong>Ivory</strong> (Mac och iOS, betald) – om du är på Apple och vill ha ett mer polerat alternativ. Snabb, snygg och välutvecklad.<br><br>
+<strong>Tusky</strong> (Android, gratis) – ett populärt och kraftfullt alternativ till den officiella appen på Android.<br><br>
+För Bluesky: officiella <strong>Bluesky</strong>-appen finns till iOS, Android och som webbapp på bsky.app.`,
+    tip: 'Osäker? Börja i webbläsaren – du kan alltid ladda ner en app senare när du vet om du gillar plattformen.',
+  },
+  {
+    title: 'Dela och interagera',
+    description: 'Posta, svara och boosta (dela) inlägg. På Mastodon kallas delning för "boost" och gillas kallas "favoritmarkering". Det finns inga publika delningsantal som på X – plattformen är medvetet designad för att minska viral hysteri.',
+    tip: 'Lägg till bildtexter (alt-text) på bilder du postar – det är god sed på fediverse och uppskattas av communityn.',
+  },
+];
+---
+
+<Layout title="Kom igång" description="Steg-för-steg-guide för att komma igång med Mastodon, Bluesky och federerade sociala medier.">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+
+    <div class="mb-10">
+      <p class="text-blue-700 font-semibold text-sm uppercase tracking-widest mb-3">Guide</p>
+      <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Kom igång</h1>
+      <p class="text-lg text-gray-600">
+        Från noll till aktiv på federerade sociala medier på under en timme.
+        Den här guiden tar dig igenom allt du behöver göra.
+      </p>
+    </div>
+
+    <StepGuide steps={steps} />
+
+    <div class="mt-12 bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <h2 class="font-semibold text-blue-900 mb-2">Redo att utforska mer?</h2>
+      <div class="flex flex-wrap gap-3 mt-3">
+        <a href="/valj-plattform" class="text-sm font-medium text-blue-700 no-underline hover:underline">Jämför plattformar →</a>
+        <a href="/valj-instans" class="text-sm font-medium text-blue-700 no-underline hover:underline">Hitta rätt instans →</a>
+        <a href="/kallor" class="text-sm font-medium text-blue-700 no-underline hover:underline">Svenska medier att följa →</a>
+      </div>
+    </div>
+
+  </div>
+</Layout>

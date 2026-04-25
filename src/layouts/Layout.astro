@@ -1,0 +1,119 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'En guide till federerade, öppna sociala medier för svenska användare.' } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/kom-igang', label: 'Kom igång' },
+  { href: '/valj-plattform', label: 'Välj plattform' },
+  { href: '/valj-instans', label: 'Välj instans' },
+  { href: '/flytta-konto', label: 'Flytta konto' },
+  { href: '/algoritmer', label: 'Algoritmer' },
+  { href: '/kallor', label: 'Källor' },
+];
+---
+
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title} – Öppna sociala medier</title>
+  </head>
+  <body class="min-h-screen flex flex-col">
+
+    <header class="border-b border-gray-200 bg-white sticky top-0 z-50">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="flex items-center justify-between h-14">
+          <a href="/" class="no-underline font-bold text-gray-900 text-lg tracking-tight hover:text-blue-700">
+            Öppna<span class="text-blue-700"> sociala medier</span>
+          </a>
+          <nav class="hidden md:flex items-center gap-1" aria-label="Huvudnavigation">
+            {navLinks.map(link => (
+              <a
+                href={link.href}
+                class:list={[
+                  'px-3 py-1.5 rounded text-sm font-medium no-underline transition-colors',
+                  currentPath === link.href
+                    ? 'bg-blue-50 text-blue-700'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                ]}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden p-2 rounded text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+            aria-label="Öppna meny"
+            aria-expanded="false"
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M3 5h14a1 1 0 010 2H3a1 1 0 010-2zm0 4h14a1 1 0 010 2H3a1 1 0 010-2zm0 4h14a1 1 0 010 2H3a1 1 0 010-2z" clip-rule="evenodd"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100">
+        <nav class="max-w-5xl mx-auto px-4 py-3 flex flex-col gap-1" aria-label="Mobilnavigation">
+          {navLinks.map(link => (
+            <a
+              href={link.href}
+              class:list={[
+                'px-3 py-2 rounded text-sm font-medium no-underline',
+                currentPath === link.href
+                  ? 'bg-blue-50 text-blue-700'
+                  : 'text-gray-700 hover:bg-gray-100'
+              ]}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="border-t border-gray-200 mt-16 bg-gray-50">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+        <div class="flex flex-col sm:flex-row justify-between gap-6">
+          <div>
+            <p class="font-semibold text-gray-900 mb-1">Öppna sociala medier</p>
+            <p class="text-sm text-gray-500">En oberoende resurs för svenska användare som vill utforska öppna sociala medier.</p>
+          </div>
+          <nav class="flex flex-col gap-1 text-sm" aria-label="Fotnavigation">
+            {navLinks.map(link => (
+              <a href={link.href} class="text-gray-500 no-underline hover:text-gray-900">
+                {link.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+        <p class="text-xs text-gray-400 mt-6">Innehållet är kurerat och kan innehålla fel – verifiera alltid kontoinformation direkt hos respektive plattform.</p>
+      </div>
+    </footer>
+
+    <script>
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      btn?.addEventListener('click', () => {
+        const isOpen = menu?.classList.toggle('hidden') === false;
+        btn.setAttribute('aria-expanded', String(isOpen));
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,102 @@
+---
+const platforms = [
+  {
+    name: 'Mastodon',
+    type: 'Mikroblogg',
+    protocol: 'ActivityPub',
+    algorithm: 'Ingen – kronologiskt flöde',
+    content: 'Text, bilder, video (kort)',
+    openSource: true,
+    mobileApps: 'Tusky, Ivory, Mona m.fl.',
+    bestFor: 'Textdiskussioner, nyheter, communityn',
+    color: 'bg-purple-100 text-purple-800',
+    badge: 'Störst på fediverse',
+  },
+  {
+    name: 'Bluesky',
+    type: 'Mikroblogg',
+    protocol: 'AT Protocol',
+    algorithm: 'Valbara flöden (custom feeds)',
+    content: 'Text, bilder, video (kort)',
+    openSource: true,
+    mobileApps: 'Bluesky, Skeets, Graysky',
+    bestFor: 'Twitter-liknande upplevelse med algoritmkontroll',
+    color: 'bg-sky-100 text-sky-800',
+    badge: 'Snabbast växande',
+  },
+  {
+    name: 'Pixelfed',
+    type: 'Bilddelning',
+    protocol: 'ActivityPub',
+    algorithm: 'Ingen – kronologiskt flöde',
+    content: 'Bilder, korta videor',
+    openSource: true,
+    mobileApps: 'Pixelfed-appen, Fedilab',
+    bestFor: 'Fotografi, konst, visuellt innehåll',
+    color: 'bg-pink-100 text-pink-800',
+    badge: 'Instagram-alternativet',
+  },
+  {
+    name: 'PeerTube',
+    type: 'Videodelning',
+    protocol: 'ActivityPub',
+    algorithm: 'Ingen – prenumerationsbaserat',
+    content: 'Långa videor, livestreams',
+    openSource: true,
+    mobileApps: 'Begränsad (webbläsare fungerar)',
+    bestFor: 'YouTube-alternativ, längre format',
+    color: 'bg-orange-100 text-orange-800',
+    badge: 'YouTube-alternativet',
+  },
+];
+---
+
+<div class="overflow-x-auto -mx-4 sm:mx-0">
+  <table class="w-full text-sm border-collapse min-w-[640px]">
+    <thead>
+      <tr class="border-b-2 border-gray-200">
+        <th class="text-left py-3 px-4 font-semibold text-gray-500 uppercase tracking-wider text-xs w-32">Egenskap</th>
+        {platforms.map(p => (
+          <th class="text-left py-3 px-4">
+            <span class={`inline-block px-2 py-0.5 rounded-full text-xs font-semibold mb-1 ${p.color}`}>{p.badge}</span>
+            <div class="font-bold text-gray-900 text-base">{p.name}</div>
+            <div class="text-gray-500 font-normal text-xs">{p.type}</div>
+          </th>
+        ))}
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr class="hover:bg-gray-50">
+        <td class="py-3 px-4 text-gray-500 font-medium">Protokoll</td>
+        {platforms.map(p => <td class="py-3 px-4 text-gray-700">{p.protocol}</td>)}
+      </tr>
+      <tr class="hover:bg-gray-50">
+        <td class="py-3 px-4 text-gray-500 font-medium">Algoritm</td>
+        {platforms.map(p => <td class="py-3 px-4 text-gray-700">{p.algorithm}</td>)}
+      </tr>
+      <tr class="hover:bg-gray-50">
+        <td class="py-3 px-4 text-gray-500 font-medium">Innehåll</td>
+        {platforms.map(p => <td class="py-3 px-4 text-gray-700">{p.content}</td>)}
+      </tr>
+      <tr class="hover:bg-gray-50">
+        <td class="py-3 px-4 text-gray-500 font-medium">Öppen källkod</td>
+        {platforms.map(p => (
+          <td class="py-3 px-4">
+            {p.openSource
+              ? <span class="text-green-700 font-medium">✓ Ja</span>
+              : <span class="text-red-600">✗ Nej</span>
+            }
+          </td>
+        ))}
+      </tr>
+      <tr class="hover:bg-gray-50">
+        <td class="py-3 px-4 text-gray-500 font-medium">Mobil-appar</td>
+        {platforms.map(p => <td class="py-3 px-4 text-gray-600 text-xs">{p.mobileApps}</td>)}
+      </tr>
+      <tr class="bg-blue-50">
+        <td class="py-3 px-4 text-gray-500 font-medium">Passar för</td>
+        {platforms.map(p => <td class="py-3 px-4 text-gray-700 font-medium text-xs">{p.bestFor}</td>)}
+      </tr>
+    </tbody>
+  </table>
+</div>

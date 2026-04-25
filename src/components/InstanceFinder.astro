@@ -1,0 +1,105 @@
+---
+import instancesData from '../data/instances.json';
+
+const allTags = [...new Set(instancesData.flatMap(i => i.tags))].sort();
+---
+
+<div>
+  <div class="flex flex-wrap gap-2 mb-6" id="tag-filters" role="group" aria-label="Filtrera instanser">
+    <button
+      data-tag="alla"
+      class="tag-btn px-3 py-1.5 rounded-full text-sm font-medium border transition-colors bg-blue-700 text-white border-blue-700"
+      aria-pressed="true"
+    >
+      Alla
+    </button>
+    {allTags.map(tag => (
+      <button
+        data-tag={tag}
+        class="tag-btn px-3 py-1.5 rounded-full text-sm font-medium border transition-colors bg-white text-gray-700 border-gray-300 hover:border-blue-700 hover:text-blue-700"
+        aria-pressed="false"
+      >
+        {tag}
+      </button>
+    ))}
+  </div>
+
+  <p class="text-sm text-gray-500 mb-6" id="count-label">
+    Visar {instancesData.length} instanser
+  </p>
+
+  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" id="instances-grid">
+    {instancesData.map(instance => (
+      <article
+        class="instance-card border border-gray-200 rounded-lg p-5 hover:border-blue-300 hover:shadow-sm transition-all bg-white"
+        data-tags={instance.tags.join(',')}
+      >
+        <div class="flex items-start justify-between mb-2">
+          <h3 class="font-semibold text-gray-900">{instance.name}</h3>
+          <span class:list={[
+            'text-xs px-2 py-0.5 rounded-full font-medium flex-shrink-0 ml-2',
+            instance.registration === 'open'
+              ? 'bg-green-100 text-green-800'
+              : 'bg-yellow-100 text-yellow-800'
+          ]}>
+            {instance.registration === 'open' ? 'Öppen' : 'Inbjudan'}
+          </span>
+        </div>
+        <p class="text-sm text-gray-600 mb-3">{instance.description}</p>
+        <div class="flex flex-wrap gap-1.5 mb-3">
+          {instance.tags.map(tag => (
+            <span class="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{tag}</span>
+          ))}
+        </div>
+        <div class="flex items-center justify-between text-xs text-gray-500">
+          <span>{instance.users} användare</span>
+          <span class="font-medium">{instance.language}</span>
+        </div>
+        <a
+          href={instance.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-3 block text-center text-sm font-medium text-blue-700 border border-blue-200 rounded-md py-1.5 hover:bg-blue-50 transition-colors no-underline"
+        >
+          Besök instansen →
+        </a>
+      </article>
+    ))}
+  </div>
+</div>
+
+<script>
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.tag-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.instance-card');
+  const countLabel = document.getElementById('count-label');
+  let activeTag = 'alla';
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeTag = btn.dataset.tag ?? 'alla';
+
+      filterBtns.forEach(b => {
+        const isActive = b.dataset.tag === activeTag;
+        b.classList.toggle('bg-blue-700', isActive);
+        b.classList.toggle('text-white', isActive);
+        b.classList.toggle('border-blue-700', isActive);
+        b.classList.toggle('bg-white', !isActive);
+        b.classList.toggle('text-gray-700', !isActive);
+        b.classList.toggle('border-gray-300', !isActive);
+        b.setAttribute('aria-pressed', String(isActive));
+      });
+
+      let visible = 0;
+      cards.forEach(card => {
+        const tags = card.dataset.tags?.split(',') ?? [];
+        const show = activeTag === 'alla' || tags.includes(activeTag);
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      if (countLabel) {
+        countLabel.textContent = `Visar ${visible} instans${visible === 1 ? '' : 'er'}`;
+      }
+    });
+  });
+</script>

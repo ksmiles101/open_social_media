@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PlatformComparison from '../components/PlatformComparison.astro';
+---
+
+<Layout title="Välj plattform" description="Jämför Mastodon, Bluesky, Pixelfed och PeerTube – hitta rätt federerat socialt medium för dig.">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+
+    <div class="mb-10">
+      <p class="text-blue-700 font-semibold text-sm uppercase tracking-widest mb-3">Jämförelse</p>
+      <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Välj plattform</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">
+        Federerade sociala medier är inte ett enda nätverk – det är en familj av plattformar med
+        olika syften. Här är de fyra viktigaste.
+      </p>
+    </div>
+
+    <PlatformComparison />
+
+    <div class="mt-12 grid sm:grid-cols-2 gap-6">
+
+      <div class="border border-gray-200 rounded-lg p-6">
+        <h2 class="font-bold text-gray-900 text-lg mb-3">Mastodon</h2>
+        <p class="text-gray-600 text-sm mb-4">
+          Det bästa valet för de flesta. Mastodon har funnits sedan 2016 och har en mogen,
+          väletablerad community. Det federerade nätverket (fediverse) binder ihop tusentals
+          servrar till ett enda nätverk – du kan följa vem som helst oavsett var de har konto.
+        </p>
+        <p class="text-sm text-gray-500">Använder <strong>ActivityPub</strong> – samma protokoll som Pixelfed och PeerTube.</p>
+        <a href="/valj-instans" class="mt-4 block text-sm font-medium text-blue-700 no-underline hover:underline">
+          Hitta en Mastodon-instans →
+        </a>
+      </div>
+
+      <div class="border border-gray-200 rounded-lg p-6">
+        <h2 class="font-bold text-gray-900 text-lg mb-3">Bluesky</h2>
+        <p class="text-gray-600 text-sm mb-4">
+          Om du söker en upplevelse nära det gamla Twitter/X är Bluesky bäst. Det är enklare
+          att komma igång (ingen instansval), och med <em>custom feeds</em> kan du skapa
+          algoritmiska flöden helt på dina villkor. Nackdelen är att federationen är mer begränsad
+          jämfört med Mastodon.
+        </p>
+        <p class="text-sm text-gray-500">Använder <strong>AT Protocol</strong> – ett separat, öppet protokoll.</p>
+        <a href="/algoritmer" class="mt-4 block text-sm font-medium text-blue-700 no-underline hover:underline">
+          Läs om Bluesky custom feeds →
+        </a>
+      </div>
+
+      <div class="border border-gray-200 rounded-lg p-6">
+        <h2 class="font-bold text-gray-900 text-lg mb-3">Pixelfed</h2>
+        <p class="text-gray-600 text-sm mb-4">
+          Instagram utan reklam och utan ägarens monetiseringsintressen. Pixelfed är byggt
+          för fotografer, konstnärer och alla som vill dela visuellt innehåll. Eftersom det
+          använder ActivityPub kan Mastodon-användare följa Pixelfed-konton direkt.
+        </p>
+        <p class="text-sm text-gray-500">Federerar med Mastodon och andra ActivityPub-tjänster.</p>
+      </div>
+
+      <div class="border border-gray-200 rounded-lg p-6">
+        <h2 class="font-bold text-gray-900 text-lg mb-3">PeerTube</h2>
+        <p class="text-gray-600 text-sm mb-4">
+          YouTube-alternativet i fediverse. Videor hostas på oberoende servrar, och du kan
+          prenumerera på kanaler från din Mastodon-klient. Kvaliteten beror på instansen –
+          leta efter välskötta instanser med hög uptime.
+        </p>
+        <p class="text-sm text-gray-500">Stöder livestreaming och kapitelmarkeringar.</p>
+      </div>
+
+    </div>
+
+  </div>
+</Layout>

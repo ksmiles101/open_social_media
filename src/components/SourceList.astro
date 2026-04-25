@@ -1,0 +1,112 @@
+---
+import sourcesData from '../data/sources.json';
+
+const allTags = [...new Set(sourcesData.flatMap(s => s.tags))].sort();
+
+const platformLabel: Record<string, { label: string; color: string }> = {
+  mastodon: { label: 'Mastodon', color: 'bg-purple-100 text-purple-800' },
+  bluesky: { label: 'Bluesky', color: 'bg-sky-100 text-sky-800' },
+};
+
+const uniquePlatforms = (accounts: { platform: string }[]) =>
+  [...new Set(accounts.map(a => a.platform))];
+---
+
+<div>
+  <div class="flex flex-wrap gap-2 mb-6" id="source-filters" role="group" aria-label="Filtrera källor">
+    <button
+      data-tag="alla"
+      class="source-tag-btn px-3 py-1.5 rounded-full text-sm font-medium border transition-colors bg-blue-700 text-white border-blue-700"
+      aria-pressed="true"
+    >
+      Alla
+    </button>
+    {allTags.map(tag => (
+      <button
+        data-tag={tag}
+        class="source-tag-btn px-3 py-1.5 rounded-full text-sm font-medium border transition-colors bg-white text-gray-700 border-gray-300 hover:border-blue-700 hover:text-blue-700"
+        aria-pressed="false"
+      >
+        {tag}
+      </button>
+    ))}
+  </div>
+
+  <p class="text-sm text-gray-500 mb-6" id="sources-count-label">
+    Visar {sourcesData.length} källor
+  </p>
+
+  <ul class="divide-y divide-gray-100" id="sources-list">
+    {sourcesData.map(source => (
+      <li
+        class="source-card py-5 flex flex-col sm:flex-row sm:items-start gap-4"
+        data-tags={source.tags.join(',')}
+      >
+        <div class="flex-1">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="font-semibold text-gray-900">{source.name}</span>
+            {uniquePlatforms(source.accounts).map(p => {
+              const plat = platformLabel[p] ?? { label: p, color: 'bg-gray-100 text-gray-700' };
+              return <span class={`text-xs px-2 py-0.5 rounded-full font-medium ${plat.color}`}>{plat.label}</span>;
+            })}
+            {source.tags.map(tag => (
+              <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">{tag}</span>
+            ))}
+          </div>
+          <p class="text-sm text-gray-600 mb-2">{source.why_trusted}</p>
+          <div class="flex flex-wrap gap-2">
+            {source.accounts.map(acc => (
+              <code class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded font-mono">
+                {acc.handle}
+              </code>
+            ))}
+          </div>
+        </div>
+        <a
+          href={`https://${source.url}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm font-medium text-blue-700 no-underline hover:underline flex-shrink-0 self-start sm:self-center"
+        >
+          {source.url} →
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<script>
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.source-tag-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.source-card');
+  const countLabel = document.getElementById('sources-count-label');
+  let activeTag = 'alla';
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeTag = btn.dataset.tag ?? 'alla';
+
+      filterBtns.forEach(b => {
+        const isActive = b.dataset.tag === activeTag;
+        b.classList.toggle('bg-blue-700', isActive);
+        b.classList.toggle('text-white', isActive);
+        b.classList.toggle('border-blue-700', isActive);
+        b.classList.toggle('bg-white', !isActive);
+        b.classList.toggle('text-gray-700', !isActive);
+        b.classList.toggle('border-gray-300', !isActive);
+        b.setAttribute('aria-pressed', String(isActive));
+      });
+
+      let visible = 0;
+      cards.forEach(card => {
+        const tags = card.dataset.tags?.split(',') ?? [];
+        const show = activeTag === 'alla' || tags.includes(activeTag);
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      if (countLabel) {
+        countLabel.textContent = `Visar ${visible} källa${visible === 1 ? '' : 'r'}`;
+      }
+    });
+  });
+</script>

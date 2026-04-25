@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InstanceFinder from '../components/InstanceFinder.astro';
+---
+
+<Layout title="Välj instans" description="Hitta rätt Mastodon-instans för dig – filtrera på språk, ämne och community.">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+
+    <div class="mb-10">
+      <p class="text-blue-700 font-semibold text-sm uppercase tracking-widest mb-3">Mastodon</p>
+      <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Välj instans</h1>
+      <p class="text-lg text-gray-600 max-w-2xl mb-6">
+        En Mastodon-instans är en server som kör Mastodon-programvaran. Du registrerar dig på en instans,
+        men kan följa vem som helst på hela fediverse.
+      </p>
+
+      <div class="bg-amber-50 border border-amber-200 rounded-lg px-5 py-4 text-sm text-amber-900 max-w-2xl">
+        <p class="font-semibold mb-1">Viktig princip</p>
+        <p>
+          Det spelar ingen stor roll vilken instans du väljer – du kan alltid följa folk på andra instanser
+          och du kan <a href="/flytta-konto" class="text-amber-900 font-semibold">flytta ditt konto</a> senare
+          utan att förlora dina följare.
+        </p>
+      </div>
+    </div>
+
+    <div class="mb-8">
+      <h2 class="text-xl font-bold text-gray-900 mb-3">Hur väljer jag?</h2>
+      <div class="grid sm:grid-cols-3 gap-4 text-sm">
+        <div class="bg-gray-50 rounded-lg p-4">
+          <div class="font-semibold text-gray-900 mb-1">🇸🇪 Vill ha svensk community</div>
+          <p class="text-gray-600">Välj <strong>mastodon.nu</strong> eller <strong>fikaverse.social</strong>.</p>
+        </div>
+        <div class="bg-gray-50 rounded-lg p-4">
+          <div class="font-semibold text-gray-900 mb-1">💻 Jobbar med teknik</div>
+          <p class="text-gray-600">Välj <strong>fosstodon.org</strong> eller <strong>hachyderm.io</strong>.</p>
+        </div>
+        <div class="bg-gray-50 rounded-lg p-4">
+          <div class="font-semibold text-gray-900 mb-1">🎓 Akademiker/forskare</div>
+          <p class="text-gray-600">Välj <strong>scholar.social</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <InstanceFinder />
+
+    <p class="text-xs text-gray-400 mt-8">
+      Användarantal är uppskattningar och kan vara inaktuella. Kontrollera alltid instansens egna uppgifter.
+      En mer komplett lista finns på <a href="https://instances.social" target="_blank" rel="noopener noreferrer" class="text-gray-500">instances.social</a>.
+    </p>
+
+  </div>
+</Layout>

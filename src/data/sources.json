@@ -1,0 +1,93 @@
+[
+  {
+    "name": "SVT Nyheter",
+    "url": "svt.se/nyheter",
+    "accounts": [
+      { "handle": "@svtnyheter@mastodon.social", "platform": "mastodon" }
+    ],
+    "tags": ["public-service", "rikstäckande", "TV"],
+    "why_trusted": "Oberoende redaktion finansierad av public service-avgiften. Sändningstillstånd kräver opartiskhet."
+  },
+  {
+    "name": "Sveriges Radio",
+    "url": "sverigesradio.se",
+    "accounts": [
+      { "handle": "@sverigesradio@mastodon.social", "platform": "mastodon" }
+    ],
+    "tags": ["public-service", "rikstäckande", "radio"],
+    "why_trusted": "Public service-radio med oberoende redaktion. Rikstäckande nyhetsbevakning sedan 1925."
+  },
+  {
+    "name": "Riksdagen",
+    "url": "riksdagen.se",
+    "accounts": [
+      { "handle": "@riksdagen@mastodon.social", "platform": "mastodon" }
+    ],
+    "tags": ["myndighet", "politik", "rikstäckande"],
+    "why_trusted": "Officiell kanal för Sveriges riksdag. Primärkälla för lagstiftning och beslut."
+  },
+  {
+    "name": "Dagens Nyheter",
+    "url": "dn.se",
+    "accounts": [
+      { "handle": "@dagensnyheter@mastodon.nu", "platform": "mastodon" },
+      { "handle": "dagensnyheter.bsky.social", "platform": "bluesky" }
+    ],
+    "tags": ["rikstäckande", "tidning", "liberal"],
+    "why_trusted": "En av Sveriges äldsta och största dagstidningar. Oberoende liberal tidning sedan 1864."
+  },
+  {
+    "name": "Aftonbladet",
+    "url": "aftonbladet.se",
+    "accounts": [
+      { "handle": "aftonbladet.bsky.social", "platform": "bluesky" }
+    ],
+    "tags": ["rikstäckande", "tidning", "kvällstidning"],
+    "why_trusted": "Sveriges mest lästa nyhetssajt. Oberoende socialdemokratisk tidning."
+  },
+  {
+    "name": "Svenska Dagbladet",
+    "url": "svd.se",
+    "accounts": [
+      { "handle": "svd.bsky.social", "platform": "bluesky" }
+    ],
+    "tags": ["rikstäckande", "tidning", "konservativ"],
+    "why_trusted": "Rikstäckande morgontidning med fokus på djupgranskning och ekonominyheter sedan 1884."
+  },
+  {
+    "name": "Expressen",
+    "url": "expressen.se",
+    "accounts": [
+      { "handle": "expressen.bsky.social", "platform": "bluesky" }
+    ],
+    "tags": ["rikstäckande", "tidning", "kvällstidning"],
+    "why_trusted": "Sveriges näst mest lästa nyhetssajt. Liberal kvällstidning med rikstäckande bevakning."
+  },
+  {
+    "name": "Omni",
+    "url": "omni.se",
+    "accounts": [
+      { "handle": "omni.bsky.social", "platform": "bluesky" }
+    ],
+    "tags": ["rikstäckande", "aggregator", "kortformat"],
+    "why_trusted": "Nyhetssajt som sammanfattar och aggregerar nyheter från svenska och internationella medier."
+  },
+  {
+    "name": "Göteborgs-Posten",
+    "url": "gp.se",
+    "accounts": [
+      { "handle": "goteborgssposten.bsky.social", "platform": "bluesky" }
+    ],
+    "tags": ["lokalt", "tidning", "Göteborg"],
+    "why_trusted": "Ledande dagstidning i Göteborg och Västsverige sedan 1813."
+  },
+  {
+    "name": "Sydsvenskan",
+    "url": "sydsvenskan.se",
+    "accounts": [
+      { "handle": "sydsvenskan.bsky.social", "platform": "bluesky" }
+    ],
+    "tags": ["lokalt", "tidning", "Malmö"],
+    "why_trusted": "Ledande dagstidning i Malmö och södra Sverige."
+  }
+]
